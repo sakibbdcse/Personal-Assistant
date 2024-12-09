@@ -26,13 +26,10 @@ class VoiceAssistantAPIView(APIView):
             chatbot = Chatbot()
 
             if "wake up" in command:
-                assistant.speak("Hello sir, how can I assist you?")
-                return Response({"response": "How can I assist you?"})
-
+                return Response({"response": "Hello, How can I assist you?"})
             elif "change voice" in command:
                 assistant.toggle_voice()
                 return Response({"response": "Voice changed."})
-
             elif "google" in command:
                 result = web_search.search_google(command)
                 assistant.speak(result)
